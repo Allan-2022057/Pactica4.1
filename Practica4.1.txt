@@ -1,0 +1,27 @@
+int Fot = A0;
+int Lectura;
+int foco = 5;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(Fot, INPUT);
+  pinMode(foco, OUTPUT);
+}
+
+void loop()
+{
+  Lectura = analogRead(Fot);
+  analogWrite(foco, Lectura);
+  Serial.println(Lectura);
+ delay(10);
+
+ if(Lectura  <=650){
+     digitalWrite(foco,LOW);
+    }
+  else if(Lectura  >= 1000        ){
+     digitalWrite(foco,HIGH);
+   }
+   delay(100);
+
+}
